@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>welcome</title>
+</head>
+<body>
+<form th:action="@{/getStudents}" id="addForm" method="post" >
+  <p>Name:</p>
+  <p><input type="text" id="name" name="name" placeholder="你的名字"></p>
+  <input type="submit" id="submitBtn" hidden/>
+</form>
+<button id="add" onclick="add()">送出資料</button>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+<script>
+  function add(){
+
+    console.log(JSON.stringify($("#addForm").serializeJSON()));
+    console.log($("#addForm").serializeJSON());
+    $.ajax({
+      url: "/insert",
+      type:"POST",
+      data: JSON.stringify($("#addForm").serializeJSON()),
+      contentType : "application/json;charset=UTF-8",
+      dataType: "json",
+      success: function (json){
+        if(json.flag == 'ok'){
+          alert(json.msg);
+
+          $("#submitBtn").click();
+        } else {
+          alert(json.msg);
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>

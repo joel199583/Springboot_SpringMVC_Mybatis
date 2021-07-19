@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="default" targetRuntime="MyBatis3">
+
+
+        <!-- optional，旨在建立class時，對註釋進行控制 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+
+        <!--jdbc的資料庫連線 -->
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&amp;serverTimezone=Asia/Taipei"
+                userId="root"
+                password="springboot" />
+
+
+        <!-- Model模型生成器,用來生成含有主鍵key的類，記錄類 以及查詢Example類
+            targetPackage     指定生成的model生成所在的包名
+            targetProject     指定在該專案下所在的路徑
+        -->
+        <javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java" />
+
+        <!--Mapper對映檔案生成所在的目錄 為每一個數據庫的表生成對應的SqlMap檔案 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+
+
+        <!-- 客戶端程式碼，生成易於使用的針對Model物件和XML配置檔案 的程式碼
+                type="ANNOTATEDMAPPER",生成Java Model 和基於註解的Mapper物件
+                type="MIXEDMAPPER",生成基於註解的Java Model 和相應的Mapper物件
+                type="XMLMAPPER",生成SQLMap XML檔案和獨立的Mapper介面
+        -->
+        <javaClientGenerator targetPackage="com.example.demo.dao" targetProject="src/main/java" type="XMLMAPPER" />
+
+        <table tableName="STUDENT" domainObjectName="STUDENT" />
+
+    </context>
+</generatorConfiguration>

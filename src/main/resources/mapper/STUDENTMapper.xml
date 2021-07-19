@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.STUDENTMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.STUDENT">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <insert id="insertStudentInfo" parameterType="com.example.demo.entity.STUDENT">
+    INSERT  INTO STUDENT (NAME) VALUES
+    (#{name,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectStudentById" parameterType="HashMap" resultType="com.example.demo.entity.STUDENT">
+    SELECT ID, NAME FROM STUDENT WHERE ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll" resultType="HashMap" statementType="CALLABLE">
+    SELECT id, name FROM STUDENT order by ID
+  </select>
+</mapper>

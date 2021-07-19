@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <title>welcome</title>
+</head>
+<body>
+    <table border="1">
+        <tr th:each="student : ${students}"><!-- 其中m是個臨時變數，像for(User u : userList)那樣中的u-->
+            <td th:text="${student.id}"/>
+            <td th:text="${student.name}"/>
+        </tr>
+    </table>
+
+</body>
+</html>

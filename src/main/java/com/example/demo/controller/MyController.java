@@ -28,6 +28,7 @@ public class MyController extends DefaultController{
     @PostMapping("/insert")
     public Object insert(@RequestBody STUDENT s){
         Map<String, Object> rtnMap = myService.addStudent(s);
+        System.out.println("hello world");
         return rtnMap;
     }
 

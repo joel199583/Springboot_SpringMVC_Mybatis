@@ -33,6 +33,18 @@ public class WebSocketServer {
         }
     }
 
+    /**
+     * 发送消息方法
+     * @param session 客户端与socket建立的会话
+     * @param message 消息
+     * @throws IOException
+     */
+    public void sendMessage(Session session, String fromUser, String message) throws IOException{
+        if(session != null){
+            session.getBasicRemote().sendText("來自 "+fromUser+" 的悄悄話:"+message);
+        }
+    }
+
 
     /**
      * 连接建立成功调用
@@ -97,10 +109,10 @@ public class WebSocketServer {
      * @param message 消息
      * @throws IOException
      */
-    public void sendInfo(String userName, String message){
+    public void sendInfo(@PathParam(value = "name") String fromUser, String userName, String message){
         Session session = sessionPools.get(userName);
         try {
-            sendMessage(session, message);
+            sendMessage(session, fromUser, message);
         }catch (Exception e){
             e.printStackTrace();
         }

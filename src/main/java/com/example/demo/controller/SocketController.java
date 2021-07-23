@@ -22,8 +22,8 @@ public class SocketController {
      * @throws IOException
      */
     @RequestMapping(value = "/socket", method = RequestMethod.GET)
-    public void testSocket1(@RequestParam String userName, @RequestParam String message){
-        webSocketServer.sendInfo(userName, message);
+    public void testSocket1(@RequestParam String userName, @RequestParam String message, @RequestParam String fromUser){
+        webSocketServer.sendInfo(fromUser, userName, message);
     }
 
     /**

@@ -1,9 +1,6 @@
 package com.example.demo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Student")
@@ -11,6 +8,7 @@ public class STUDENT {
 
     @Id
     @Column(name="id", unique=true, nullable = false, length = 50)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "name", nullable = false, length = 50)

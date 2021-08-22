@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.db2.TEACHERMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.TEACHER">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+
+  <insert id="insertTeacherInfo" parameterType="com.example.demo.entity.TEACHER">
+    INSERT  INTO TEACHER (NAME) VALUES
+      (#{name,jdbcType=VARCHAR})
+  </insert>
+
+</mapper>

@@ -1,9 +1,15 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&serverTimezone=Asia/Taipei
-    username: root
-    password: springboot
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    db1:
+      jdbc-url: jdbc:mysql://localhost:3306/joeldemo?characterEncoding=utf-8&serverTimezone=Asia/Taipei
+      username: root
+      password: springboot
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    db2:
+      jdbc-url: jdbc:mysql://localhost:3306/joeldemo2?characterEncoding=utf-8&serverTimezone=Asia/Taipei
+      username: root
+      password: springboot
+      driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf:
     cache: false
     encoding: UTF-8
@@ -14,7 +20,7 @@ spring:
     prefix: classpath:/templates/     # 設定去templates資料夾找html檔案
     suffix: .html                     # 構建字尾
 mybatis:
-  mapper-locations: classpath:/resources/mapper/*.xml
+  mapper-locations: classpath:/resources/mapper/**/*.xml
   type-aliases-package: com.example.demo.dao
 server:
   port: 8081

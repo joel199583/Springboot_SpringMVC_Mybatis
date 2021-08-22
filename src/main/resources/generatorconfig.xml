@@ -14,7 +14,7 @@
         <!--jdbc的資料庫連線 -->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&amp;serverTimezone=Asia/Taipei"
+                connectionURL="jdbc:mysql://localhost:3306/joeldemo2?characterEncoding=utf-8&amp;serverTimezone=Asia/Taipei"
                 userId="root"
                 password="springboot" />
 
@@ -36,7 +36,7 @@
         -->
         <javaClientGenerator targetPackage="com.example.demo.dao" targetProject="src/main/java" type="XMLMAPPER" />
 
-        <table tableName="STUDENT" domainObjectName="STUDENT" />
+        <table tableName="TEACHER" domainObjectName="TEACHER" />
 
     </context>
 </generatorConfiguration>

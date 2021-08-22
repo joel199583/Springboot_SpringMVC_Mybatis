@@ -61,5 +61,11 @@ public class MyController extends DefaultController{
         return mv; // 要導入的html
     }
 
+    @RequestMapping("/insertTwoObj")
+    public String insertTwoObj() throws Exception{
+        myService.insertTwoObj();
+        return "Hello World";
+    }
+
 }
 

@@ -82,7 +82,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 		value = value.replaceAll("'", "&#39;");
 		value = value.replaceAll("eval\\((.*)\\)", "");
 		value = value.replaceAll("[\\\"\\\'][\\s]*javascript:(.*)[\\\"\\\']", "\"\"");
-		value = value.replaceAll("script", "");
+//		value = value.replaceAll("script", "");
 		return value;
 	}
 
@@ -92,8 +92,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 			return super.getInputStream();
 		} else {
 
-			final ByteArrayInputStream bais = new ByteArrayInputStream(
-					inputHandlers(super.getInputStream()).getBytes());
+			final ByteArrayInputStream bais = new ByteArrayInputStream(inputHandlers(super.getInputStream()).getBytes());
 
 			return new ServletInputStream() {
 
@@ -113,8 +112,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 				}
 
 				@Override
-				public void setReadListener(ReadListener readListener) {
-				}
+				public void setReadListener(ReadListener readListener) {}
 			};
 		}
 
